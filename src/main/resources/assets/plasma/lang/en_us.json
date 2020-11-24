@@ -1,0 +1,9 @@
+{
+
+  "item.plasma.plasma_shard" : "Plasma Sliver",
+  "item.plasma.void_shard"   : "Void Sliver",
+
+  "block.plasma.plasma_ore"  : "Stone",
+
+  "block.plasma.plasma_ore.tooltip" : "§3Surging with energy"
+}
