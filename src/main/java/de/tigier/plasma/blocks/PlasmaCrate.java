@@ -29,7 +29,9 @@ public class PlasmaCrate extends Block implements BlockEntityProvider {
         // such as the one from BlockWithEntity
         if (player.getStackInHand(hand).isEmpty()) {
             player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
+
             return ActionResult.SUCCESS;
+
         }
 
         //Clientside
@@ -60,6 +62,8 @@ public class PlasmaCrate extends Block implements BlockEntityProvider {
     public @Nullable BlockEntity createBlockEntity(BlockView world) {
         return new PlasmaCrateBlockEntity();
     }
+
+
 
 
 

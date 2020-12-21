@@ -1,6 +1,7 @@
 package de.tigier.plasma.gui;
 
 
+
 import de.tigier.plasma.Registry;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WGridPanel;
@@ -16,7 +17,7 @@ public class PlasmaCrateController extends SyncedGuiDescription {
 
         WGridPanel root = new WGridPanel();
         setRootPanel(root);
-        root.setSize(300,200);
+        root.setSize(300, 200);
 
         WItemSlot itemSlot = WItemSlot.of(blockInventory, 0);
         root.add(itemSlot, 4, 1);

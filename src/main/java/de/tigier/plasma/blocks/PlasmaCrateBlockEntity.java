@@ -2,7 +2,7 @@ package de.tigier.plasma.blocks;
 
 import de.tigier.plasma.Registry;
 import de.tigier.plasma.gui.PlasmaCrateController;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -18,7 +18,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
-public class PlasmaCrateBlockEntity extends BlockEntity implements ImplementedInventory, SidedInventory, NamedScreenHandlerFactory {
+public class PlasmaCrateBlockEntity extends LootableContainerBlockEntity implements ImplementedInventory, SidedInventory, NamedScreenHandlerFactory {
 
     private final DefaultedList<ItemStack> items = DefaultedList.ofSize(27, ItemStack.EMPTY);
 
@@ -34,6 +34,16 @@ public class PlasmaCrateBlockEntity extends BlockEntity implements ImplementedIn
     @Override
     public boolean canPlayerUse(PlayerEntity player) {
         return pos.isWithinDistance(player.getBlockPos(), 4.5);
+
+    }
+
+    @Override
+    protected DefaultedList<ItemStack> getInvStackList() {
+        return getItems();
+    }
+
+    @Override
+    protected void setInvStackList(DefaultedList<ItemStack> list) {
 
     }
 
@@ -70,7 +80,19 @@ public class PlasmaCrateBlockEntity extends BlockEntity implements ImplementedIn
     }
 
     @Override
+    protected Text getContainerName() {
+        return null;
+    }
+
+    @Override
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
         return new PlasmaCrateController(syncId, inv, ScreenHandlerContext.create(world, pos));
     }
+
+    @Override
+    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
+        return new PlasmaCrateController(syncId,playerInventory,ScreenHandlerContext.EMPTY);
+    }
+
+
 }

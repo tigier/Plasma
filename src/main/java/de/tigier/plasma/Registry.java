@@ -6,17 +6,13 @@ import de.tigier.plasma.blocks.PlasmaStone;
 import de.tigier.plasma.gui.PlasmaCrateController;
 import de.tigier.plasma.gui.PlasmaCrateScreen;
 import de.tigier.plasma.items.PlasmaWand;
-import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.fabricmc.fabric.impl.screenhandler.ExtendedScreenHandlerType;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.BlockItem;
@@ -28,7 +24,6 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
@@ -75,7 +70,7 @@ public class Registry {
     }
 
     public static void registerGui(){
-        ScreenRegistry.<PlasmaCrateController, PlasmaCrateScreen>register(PLASMA_CRATE_HANDLER,(gui, inventory, title) -> new PlasmaCrateScreen(gui, inventory.player, title));
+        ScreenRegistry.register(PLASMA_CRATE_HANDLER, (gui, inventory, title) -> new PlasmaCrateScreen(gui, inventory.player, title));
     }
 
 

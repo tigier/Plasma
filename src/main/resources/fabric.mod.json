@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "plasma",
+  "version": "${version}",
+
+  "name": "Plasma",
+  "description": "testing",
+  "authors": [
+    "Tigier"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/plasma/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.tigier.plasma.Plasma"
+    ],
+    "client": [
+      "de.tigier.plasma.PlasmaClient"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
